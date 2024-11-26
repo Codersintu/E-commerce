@@ -1,0 +1,101 @@
+.anounce {
+    width: 100%;
+    background-color: rgb(224, 252, 252);
+    height: calc(100vh - 60px);
+    position: relative;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.anouncewrap {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 100%; 
+    transition: all 1.5s ease; /* Smooth transition */
+}
+
+.anouncewrap.active {
+    left: 0; /* Bring the active slide into view */
+}
+
+.slider {
+    background-color: rgb(161, 161, 161);
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.slider.left {
+    left: 10px;
+}
+
+.slider.right {
+    right: 10px;
+}
+
+.anounceleft
+ {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teal {
+    width: 500px;
+    height: 500px;
+    background-color: teal;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hot {
+    height: 500px;
+    width: 500px;
+    position: absolute;
+}
+.anounceright{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sale {
+    font-size: 60px;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.desc {
+    font-size: 20px;
+    line-height: 1.7;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+}
+
+.shopbtn {
+    margin-top: 40px;
+}
+
+.knowbn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}

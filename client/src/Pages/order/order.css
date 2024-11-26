@@ -1,0 +1,100 @@
+.order  {
+    width: 100%;
+}
+.orderwrapper{
+width: 100%;
+}
+.ordertitle{
+    text-align: center;
+
+}
+.ordersection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.shopbtn{
+    padding-bottom: 20px;
+}
+.shopbtn button{
+    padding: 10px 10px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+.check button{
+    padding: 10px 10px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+.orderbill{
+    display: flex;
+    flex-direction: column;
+ 
+}
+.leftbill{
+    border-top: 5px solid black;
+    -webkit-box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+    box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+    display: flex;
+    justify-content: space-around;
+}
+.proimg{
+    width: 150px;
+    
+}
+.productinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+.productinfo span{
+    margin-bottom: 10px;
+}
+.gola{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.add{
+    display: flex;
+    align-items: center;
+}
+.sellimg{
+    width: 100%;
+}
+.rightbill{
+    -webkit-box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+    box-shadow: 1px 11px 23px -16px rgba(66, 68, 90, 1);
+}
+.rightbillwrapper{
+     width: 100%;
+}
+.rightbill h1{
+    text-align: center;
+}
+.orderedlist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkoutbtn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    
+}
+.checkoutbtn button{
+ padding: 10px;
+ background-color: aqua;
+ color: black;
+}
+.locate{
+    margin-top: 100px;
+
+}

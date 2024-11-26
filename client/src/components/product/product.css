@@ -1,0 +1,36 @@
+.product{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.productwrapper{
+  height: 100%;
+  width: 100%;
+}
+.productimg{
+    position: relative;
+    cursor: pointer;
+}
+.jsimg{
+    height: 250px;
+    width: 250px;
+}
+.Icon{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 70px;
+    display: none;
+    cursor: pointer;
+}
+.ico{
+    margin-right: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+      font-weight: 900;
+}
+.productimg:hover{
+    .Icon{
+        display: block;
+    }
+}

@@ -1,0 +1,104 @@
+.navbar{
+    width: 100%;
+    height: 60px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    z-index: 1002;
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbarwrapper{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+
+}
+.left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    
+    
+}
+.lang{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.arrowIcon{
+    margin-right: 20px;
+}
+.searchfield{
+  display: flex;
+  align-items: center;
+}
+.NavbarInput{
+    position: relative;
+    padding: 7px 20px;
+    outline: none;
+    border-radius: 7px;
+    border: grey solid 1px;
+}
+.searchIcon{
+  position: absolute;
+  color: grey;
+
+}
+.center{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.robo{
+    font-size: 30px;
+    font-weight: 700;
+}
+.right{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.regi{
+    font-size: 18px;
+    color: grey;
+    margin-right: 10px;
+  cursor: pointer;
+}
+.sign{
+    font-size: 18px;
+    color: grey;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.cartfield{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.cartIcon{
+
+}
+.cartnumber{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: blue;
+    border-radius: 50%;
+    right: 0px;
+    top: -5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
