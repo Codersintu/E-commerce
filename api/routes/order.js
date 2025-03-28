@@ -1,9 +1,10 @@
-const router=require("express").Router()
-const Order=require("../module/Order")
-const {verifyToken, verifyTokenAndAdmin}=require("../Verifytoken")
+import { Router } from "express"
+const router=Router();
+import Order from "../module/Order"
+import { authorizedRoles, isLoggedIn } from "../Auth";
 
 //create order
-router.post("/",verifyToken,async(req,res)=>{
+router.post("/",isLoggedIn,async(req,res)=>{
     const newOrder=new Order(req.body);
     try {
         const savedOrder=await newOrder.save();
@@ -17,7 +18,7 @@ router.post("/",verifyToken,async(req,res)=>{
 });
 
 //update
-router.put("/:id",verifyTokenAndAdmin,async(req,res)=>{
+router.put("/:id",authorizedRoles("ADMIN"),async(req,res)=>{
     try {
         const updatedOrder=await Order.findByIdAndUpdate(req.params.id,
             {
@@ -35,7 +36,7 @@ router.put("/:id",verifyTokenAndAdmin,async(req,res)=>{
 });
 
 //Delete
-router.delete("/:id",verifyTokenAndAdmin,async(req,res)=>{
+router.delete("/:id",authorizedRoles("ADMIN"),async(req,res)=>{
     try {
         await Order.findByIdAndDelete(req.params.id);
       return  res.status(200).json("product has been deleted");
@@ -59,7 +60,7 @@ router.get("/find/:userId",async(req,res)=>{
 
 // //GET ALL
 
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get("/", authorizedRoles("ADMIN"), async (req, res) => {
     try {
       const orders = await Order.find();
       res.status(200).json(orders);
@@ -69,7 +70,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
   });
 
   //get monthly income
-  router.get('/income',verifyTokenAndAdmin,async(req,res)=>{
+  router.get('/income',authorizedRoles("ADMIN"),async(req,res)=>{
     const productId=req.query.pid;
     const date =new Date();
     const lastMonth=new Date(date.setMonth(date.getMonth()-1));
@@ -103,4 +104,4 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
     }
   })
 
-  module.exports=router;
+  export default router;
