@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Navbar } from '../../components/navbar/Navbar'
 import { Gallery } from '../../components/gallery/Gallery'
 import './home.css'
 import { Products } from '../../components/products/Products'
