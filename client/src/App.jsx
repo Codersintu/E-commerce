@@ -1,6 +1,5 @@
 
 import './App.css'
-import { Navbar } from './components/navbar/Navbar'
 import { Category } from './Pages/category/Category'
 import {Home} from './Pages/home/Home'
 import { Order } from './Pages/order/Order'
@@ -19,8 +18,6 @@ function App() {
  
   return (
     <div className="app"> 
-      <Navbar/>
-      
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
