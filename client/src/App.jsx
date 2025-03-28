@@ -16,17 +16,7 @@ import {
 
 
 function App() {
-  // const user= useSelector((state)=>state.user.currentUser);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   // Check if user data exists in localStorage on app load
-  //   const storedUser = localStorage.getItem('currentUser');
-  //   if (storedUser) {
-  //     // If user data exists, parse it and dispatch loginSuccess
-  //     dispatch(loginSuccess(JSON.parse(storedUser)));  // Parse the stored user data and dispatch
-  //   }
-  // }, [dispatch]);  // Runs only once on mount
+ 
   return (
     <div className="app"> 
       <Navbar/>

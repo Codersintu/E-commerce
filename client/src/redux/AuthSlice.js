@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import axiosInstance from "../helper/axiosInstance.js";
 
 
+
 const initialState = {
     isloggedIn: localStorage.getItem("isloggedIn") || false,
     role: localStorage.getItem('role') || "",
@@ -44,22 +45,22 @@ export const createLogin=createAsyncThunk("/auth/login",async(data)=>{
 })
 
 
-// export const Logout=createAsyncThunk("/auth/logout",async()=>{
-//     try {
-//         const res = await toast.promise(
-//             axiosInstance.post("/auth/logout"),  //  Pass the async function
-//             {
-//                 loading: "Wait! Logout your account...",
-//                 success: (response) => response?.data?.message || "Account Logout successfully!",
-//                 error: "Failed to Logout account",
-//             }
-//         );
-//         return res.data;
-//     } catch (error) {
-//         toast.error(error?.response?.data?.message);
-//         return;
-//     }
-// })
+export const Logout=createAsyncThunk("/auth/logout",async()=>{
+    try {
+        const res = await toast.promise(
+            axiosInstance.post("/auth/logout"),  //  Pass the async function
+            {
+                loading: "Wait! Logout your account...",
+                success: (response) => response?.data?.message || "Account Logout successfully!",
+                error: "Failed to Logout account",
+            }
+        );
+        return res.data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message);
+        return;
+    }
+})
 
 
 // export const UpdateProfile=createAsyncThunk("/auth/update/profile",async(data)=>{
@@ -94,12 +95,12 @@ const authSlice = createSlice({
             state.data=action?.payload?.user;
             state.role=action?.payload?.user?.role
         })
-        // .addCase(Logout.fulfilled,(state)=>{
-        //     localStorage.clear();
-        //     state.data={};
-        //     state.isloggedIn=false;
-        //     state.role="";
-        // })
+        .addCase(Logout.fulfilled,(state)=>{
+            localStorage.clear();
+            state.data={};
+            state.isloggedIn=false;
+            state.role="";
+        })
         // .addCase(getUserData.fulfilled,(state,action)=>{
         //     if (!action?.payload?.user) return;
         //     localStorage.setItem("data",JSON.stringify(action?.payload?.user));
