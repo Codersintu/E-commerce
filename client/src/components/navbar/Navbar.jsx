@@ -2,14 +2,12 @@ import React from 'react'
 import  { ArrowDropDown, Search, ShoppingCart}  from '@mui/icons-material'
 import './navbar.css'
 import {useSelector} from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 
 export function Navbar(props) {
-    const quantity=useSelector(state=>state.cart.quantity)
-    console.log(quantity)
-    const currentUser = useSelector((state) => state.user.currentUser);
-
+    const { data, isloggedIn, role } = useSelector((state) => state?.auth);
+    console.log("User Data:", data);
     return (
         <div className="navbar">
             <div className="navbarwrapper">
@@ -27,7 +25,7 @@ export function Navbar(props) {
                 <div className="center"><span className='robo'>VMart SHOP</span></div>
                 
                 <div className="right">
-                    {!currentUser ? (
+                    {!data ? (
                   <>
                     <Link to='/register'>
                     <span className='regi'>Register</span>
@@ -37,13 +35,13 @@ export function Navbar(props) {
                     </Link>
                     </>
                 ) : (
-                   <span>WELCOME</span> 
+                 <span>WELCOME {data.username}</span>
                 )}
                     <Link to='/order'>
                     <div className="cartfield">
                     
                     <ShoppingCart className='cartIcon'/>
-                    <div className="cartnumber">{quantity}</div>
+                    <div className="cartnumber">23</div>
                     
                     </div>
                     </Link>

@@ -13,35 +13,31 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { loginSuccess } from './redux/UserRedux'
 
 
 function App() {
-  const user= useSelector((state)=>state.user.currentUser);
-  const dispatch = useDispatch();
+  // const user= useSelector((state)=>state.user.currentUser);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    // Check if user data exists in localStorage on app load
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-      // If user data exists, parse it and dispatch loginSuccess
-      dispatch(loginSuccess(JSON.parse(storedUser)));  // Parse the stored user data and dispatch
-    }
-  }, [dispatch]);  // Runs only once on mount
-
+  // useEffect(() => {
+  //   // Check if user data exists in localStorage on app load
+  //   const storedUser = localStorage.getItem('currentUser');
+  //   if (storedUser) {
+  //     // If user data exists, parse it and dispatch loginSuccess
+  //     dispatch(loginSuccess(JSON.parse(storedUser)));  // Parse the stored user data and dispatch
+  //   }
+  // }, [dispatch]);  // Runs only once on mount
   return (
-    <div className="app">
+    <div className="app"> 
       <Navbar/>
       
       <Routes>
-        <Route exact path="/" element={user ? <Home/> :<Register/> } />
-        <Route path="/login" element={user ? <Navigate to="/"/> : <Login/>} />
-        <Route path="/register" element={user ? <Navigate to="/"/> : <Register />} />
-        <Route path="/category/:product" element={user ? <Category/> :<Login/>} />
-        <Route path="/order" element={user ? <Order /> : <Login/>} />
-        <Route path="/products/:id" element={user ? <Productlist /> : <Login/>} />
+        <Route exact path="/" element={<Home/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/category/:product" element={<Category/>} />
+        <Route path="/order" element={ <Order />} />
+        <Route path="/products/:id" element={<Productlist />} />
 
       </Routes>
 

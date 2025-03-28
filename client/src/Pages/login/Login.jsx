@@ -1,32 +1,80 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
+import { BsPersonCircle } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast'
+import { createLogin } from '../../redux/AuthSlice.js';
 import './login.css'
-import {useDispatch, useSelector} from 'react-redux'
-import { login } from '../../redux/apiCall'
+
 
 export function Login(props) {
-    const [username,setUsername]=useState("");
-    const [password,setPassword]=useState("");
     const dispatch=useDispatch();
-    const { isFetching,error} = useSelector((state)=>state.user);
-     
+    const navigate=useNavigate();
+   
+    const [LoginData,setLoginData]=useState({
+        username:"",
+        email:"",
+        password:"",
+        avatar:""
+    });
 
-    const handleClick=(e)=>{
-        e.preventDefault();
-       login(dispatch,{username,password});
-    };
+    const handleLoginInputChange=(event)=>{
+        const {name,value}=event.target;
+        setLoginData({
+            ...LoginData,
+            [name]:value
+        })
+
+    }
+
+
+    const createLoginhandler=async(event)=>{
+        event.preventDefault();
+        if (!LoginData.email || !LoginData.password ) {
+        toast.error("Please fill all the details");
+        return;
+        }
+       
+        //dispatch create account action
+        const response=await dispatch(createLogin(LoginData));
+        if (response?.payload?.success) 
+        navigate("/");
+
+        setLoginData({
+            email:"",
+            password:"",
+        });
+
+    }
+
     return (
         <div className="login">
-        <form className="loginform" >
-            <h1 className="loginTitle">Login</h1>
+    <div className="wraplogin">
+    <form noValidate onSubmit={createLoginhandler} className="formlogin">
+      <h1 className="">Login Page...</h1>
 
-            <label className='loginlabel' htmlFor="username">Username</label>
-            <input className='LoginInput' type="username" onChange={(e)=>setUsername(e.target.value)} id='username' placeholder='username...' />
 
-            <label className='loginlabel' htmlFor="password">Password</label>
-            <input onChange={(e)=>setPassword(e.target.value)} className='LoginInput' type="password" id='password' />
-           
-             <button className='loginbtn' disabled={isFetching} onClick={handleClick} >Login</button>
-        </form>
-        </div>
+      <div className="Inputgr">
+        <label htmlFor="email" className="font-semibold">Email</label>
+        <input value={LoginData.email} onChange={handleLoginInputChange} type="email" name="email" id="email" required placeholder="Enter your email..."
+          className="Inputdetail" />
+      </div>
+
+
+
+      <div className="Inputgr">
+        <label htmlFor="password" className="">Password</label>
+        <input value={LoginData.password} onChange={handleLoginInputChange} type="password" name="password" id="password" required placeholder="Enter your password..."
+          className="Inputdetail" />
+      </div>
+
+
+      <button type='submit' className="createBtnlogin">Login</button>
+
+      <p className='text-center'>Create an account ? <Link to='/register' className=''>Register</Link></p>
+    </form>
+  </div>
+</div>
+
     )
 }

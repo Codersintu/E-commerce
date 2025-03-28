@@ -3,7 +3,7 @@ import './Productlist.css'
 import { Add, PlusOne, Remove, SettingsBackupRestoreSharp } from '@mui/icons-material'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
-import { addProduct } from '../../redux/cartRedux'
+// import { addProduct } from '../../redux/cartRedux'
 import { useDispatch } from 'react-redux'
 export function Productlist(props) {
     const location=useLocation()
